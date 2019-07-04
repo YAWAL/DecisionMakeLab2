@@ -1,5 +1,7 @@
 package calculation
 
+import "fmt"
+
 const years = 5
 
 type Build struct {
@@ -29,4 +31,14 @@ func (w *Wait) ProcessWait() float64 {
 		return w.PositiveProbability * resultA1
 	}
 	return w.PositiveProbability * resultB1
+}
+
+func Max(results ...float64) string {
+	max := results[0]
+	for _, res := range results {
+		if res > max {
+			max = res
+		}
+	}
+	return fmt.Sprintf("%.2f", max)
 }
